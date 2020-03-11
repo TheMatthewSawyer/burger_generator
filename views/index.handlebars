@@ -1,21 +1,52 @@
-<div>
-   {{burgers.name}}
-   {{#each burgers}}
-      {{#if Devoured}}
+   <a href="/graveyard">
 
-      {{else}}
-         <div class='topBun'></div>
-         <div class='burger'>
-            {{Name}}
-            <br>
+      <div id='graveyardBtn'>
+         <h3>Check out the <span style='color:red; font-weight: bolder;'>NEW</span><br> burger graveyard!</h3>
+      </div>
+
+   </a>
+
+   <div class="form-group">
+
+      <a class="burgerAddLbl"><label for="burgerEntry">Click here or the plate to add a burger!</label><br></a>
+      <input type="text" name="burgerEntry" id='burgerEntryField'>
+
+   </div>
+
+</header>
+		
+<div class="container">
+  	<div class="row">
+		
+      <div class="col-md-2"></div>
+		<div class="col-md-8">
+         <div>
+            {{#each burgers}}
+               {{#if Devoured}}
+               {{else}}
+                  <div class='topBun'></div>
+                  <div class='burger'>
+                     {{Name}}
+                     <br>
+                  </div>
+                  <button class='eatBtn' id='{{Id}}'>
+                     <span style="opacity: 0;">.</span><i class="material-icons">arrow_upward</i>
+                     <br>
+                     Eat!
+                  </button>
+                  <div class='bottomBun'></div>
+               {{/if}}
+            {{/each}}
          </div>
-         <button class='eatBtn' id='{{Id}}'>
-            <span style="opacity: 0;">.</span><i class="material-icons">arrow_upward</i>
-            <br>
-            Eat!
-         </button>
-         <div class='bottomBun'></div>
-      {{/if}}
-   {{/each}}
+		</div>
+		<div class="col-md-2"></div>
+
+  	</div>
+
+	<div class="row" id="addBurger">
+		<div class="col-md">
+			<button id='addBurgerBtn'></button>
+		</div>
+	</div>
 
 </div>

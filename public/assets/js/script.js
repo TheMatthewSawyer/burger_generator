@@ -15,7 +15,9 @@ $(() => {
             });
         setTimeout(window.location.reload(), 3000);
     });
-
+    $(".burgerAddLbl").on("click", function () {
+        $("#addBurgerBtn").click();
+    });
     $('button').on("click", function () {
         if(this.id === "addBurgerBtn") {
             console.log('submit button press');

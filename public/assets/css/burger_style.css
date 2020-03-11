@@ -92,6 +92,7 @@ label {
   padding: 10px;
   border-radius: 10px;
   font-size: 20px;
+  transition: all 200ms;
 }
 
 button:focus {
@@ -114,10 +115,72 @@ button:focus {
   transform: scale(.99);
 }
 
-#graveyardBtn {
-  position: absolute;
-  top: 0;
-  background-color: blue;
-  color: whitesmoke;
-
+label:hover {
+  cursor: pointer;
+  color: white;
 }
+
+#graveyardBtn {
+  transition: all 200ms;
+  margin: 25px;
+  padding: 10px;
+  border: 3px solid saddlebrown;
+  width: 280px;
+  border-radius: 10px;
+}
+
+#graveyardBtn:hover{
+  cursor: pointer;
+  background-color: skyblue;
+  color: white;
+  text-decoration: none;
+}
+
+#gravestone {
+  background-color: rgb(185, 190, 196);
+  height: 100%;
+  border-radius: 100% 100% 0 0;
+  width: 50%;
+  margin: 0 auto;
+  border: 15px solid gray;
+  border-top: 20px solid rgb(165, 165, 165);
+  border-bottom: 10px solid rgb(68, 68, 68);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#stoneBottom {
+  background-color: rgb(185, 190, 196);
+  border: 20px solid gray;
+  border-top: 10px solid rgb(165, 165, 165);
+  border-bottom: 0;
+  height: 150px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.graveItem {
+  font-size: 25px;
+  margin: 5px;
+  padding: 3px 3px 7px 3px;
+  border: 5px outset rgb(224, 224, 224);
+  background-color: rgb(195, 203, 212);
+  color: rgb(68, 68, 68);
+  text-shadow: 0px 4px whitesmoke,
+              0px 3px whitesmoke,
+              0px 2px whitesmoke,
+              0px 1px whitesmoke;
+}
+
+a:link,a:active  {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:visited {
+  color: green;
+}
+
+#wholeYard {
+  background: linear-gradient(0deg, rgba(255,250,205,1) 0%, rgba(32,124,0,1) 3%, rgba(140,255,143,1) 35%, rgba(255,255,255,1) 46%, rgba(255,245,118,1) 55%, rgba(255,250,205,1) 75%, rgba(255,250,205,1) 100%);}

@@ -5,7 +5,7 @@ let orm = {
       let queryString = "SELECT * FROM burgers WHERE devoured = 0;";
       connection.query(queryString, (err, result) => {
             if (err) { throw err; }
-            // console.log(`Select all was called. Retrieved: ${JSON.stringify(result)}`)
+            console.log(`Select all was called. Retrieved: ${JSON.stringify(result)}`)
             cb(result);
       });
     }, 
@@ -27,7 +27,15 @@ let orm = {
   
         return(result);
       });
-    }
+    },
+    selectDevoured: (cb) => {
+      let queryString = "SELECT * FROM burgers WHERE devoured = 1;";
+      connection.query(queryString, (err, result) => {
+            if (err) { throw err; }
+            console.log(`Select devoured was called. Retrieved: ${JSON.stringify(result)}`)
+            cb(result);
+      });
+    }, 
   };
 
   module.exports = orm;
