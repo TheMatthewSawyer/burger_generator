@@ -1,3 +1,5 @@
-INSERT INTO burgers (burger_name, devoured) VALUES ('Bacon Cheese Burger', false);
-INSERT INTO burgers (burger_name, devoured) VALUES ('Triple Burger', false);
-INSERT INTO burgers (burger_name, devoured) VALUES ('Regular Burger', false);
+INSERT INTO burgers (burger_name) VALUES ('Bacon Cheese Burger');
+-- INSERT INTO burgers (burger_name) VALUES ('Triple Burger');
+INSERT INTO burgers (burger_name) VALUES ('Regular Burger');
+
+SELECT * FROM burgers;

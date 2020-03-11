@@ -1,6 +1,21 @@
-   <div>
-      <h1>Burgers:</h1>
-      {{#each burgers}}
-         {{this}}<br>
-      {{/each}}
-   </div>
+<div>
+   {{burgers.name}}
+   {{#each burgers}}
+      {{#if Devoured}}
+
+      {{else}}
+         <div class='topBun'></div>
+         <div class='burger'>
+            {{Name}}
+            <br>
+         </div>
+         <button class='eatBtn' id='{{Id}}'>
+            <span style="opacity: 0;">.</span><i class="material-icons">arrow_upward</i>
+            <br>
+            Eat!
+         </button>
+         <div class='bottomBun'></div>
+      {{/if}}
+   {{/each}}
+
+</div>
