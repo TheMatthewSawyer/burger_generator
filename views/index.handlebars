@@ -9,7 +9,7 @@
    <div class="form-group">
 
       <a class="burgerAddLbl"><label for="burgerEntry">Click here or the plate to add a burger!</label><br></a>
-      <input type="text" name="burgerEntry" id='burgerEntryField'>
+      <input aria-label='Add your own custom burger' type="text" name="burgerEntry" id='burgerEntryField'>
 
    </div>
 
@@ -29,7 +29,7 @@
                      {{Name}}
                      <br>
                   </div>
-                  <button class='eatBtn' id='{{Id}}'>
+                  <button aria-label='Eat the {{Name}} burger! ' class='eatBtn' id='{{Id}}'>
                      <span style="opacity: 0;">.</span><i class="material-icons">arrow_upward</i>
                      <br>
                      Eat!
@@ -45,7 +45,7 @@
 
 	<div class="row" id="addBurger">
 		<div class="col-md">
-			<button id='addBurgerBtn'></button>
+			<button aria-label='Add your own custom burger plate button' id='addBurgerBtn'></button>
 		</div>
 	</div>
 

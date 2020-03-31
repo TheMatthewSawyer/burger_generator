@@ -1,21 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
-		<link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" />
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<title>Burger Holder</title>
-		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/assets/js/script.js"></script>
+	<link rel="stylesheet" href="/assets/css/bootstrap-grid.min.css">
+	<link rel='shortcut icon' type='image/x-icon' href='/assets/img/favicon.ico' />
+	{{!-- <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css" /> --}}
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<title>Burger Holder</title>
+	<script src="/assets/js/jquery-3.4.1.min.js"></script>
+	<script src="/assets/js/script.js" async></script>
 
-	</head>
-	<body>
-		<header>
-			<h1>Burger Holder</h1>
-			
-					{{{ body }}}
+	<style>
+		body {
+			text-align: center;
+			font-family: Georgia, 'Times New Roman', Times, sans-serif;
+			background-color: lemonchiffon;
+		}
 
-	</body>
+		h2 {
+			text-align: left;
+		}
+
+		input {
+			border: 5px ridge;
+			z-index: 2;
+			position: relative;
+			margin: 20px 0px 10px;
+		}
+
+		input[data-state="invalid"] {
+			border-color: red;
+		}
+
+		input[data-state="valid"] {
+			border-color: green;
+		}
+
+		.burger {
+			border: 5px outset brown;
+			border-radius: 15px;
+			padding: 10px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			background-color: rgb(119, 64, 38);
+			font-size: 20px;
+			color: white;
+			width: 100%;
+			z-index: 2;
+			position: relative;
+			font-size: 4vw;
+		}
+
+		.eatBtn {
+			border: 2px solid rgb(121, 0, 0);
+			font-size: 2vw;
+			min-height: 100px;
+			min-width: 100px;
+			border-radius: 50px;
+			position: absolute;
+			z-index: 4;
+			transform: rotate(335deg);
+			transition: all 200ms;
+		}
+
+		.topBun {
+			border-top: 13px solid rgb(255, 176, 98);
+			border-bottom: 5px solid rgb(148, 97, 46);
+		}
+
+		.topBun,
+		.bottomBun {
+			width: 100%;
+			height: 50px;
+			background-color: peru;
+			border-radius: 50px 50px 0px 0px;
+			z-index: 2;
+			position: relative;
+		}
+
+		.bottomBun {
+			border-radius: 0px 0px 20px 20px;
+			border-top: 5px solid rgb(255, 176, 98);
+			border-bottom: 13px solid rgb(148, 97, 46);
+		}
+
+		#addBurgerBtn {
+			color: black;
+			position: absolute;
+			height: 400px;
+			width: 100%;
+			border-radius: 420px 420px 500px 500px;
+			border: 30px solid rgb(240, 240, 240);
+			background: linear-gradient(0deg, rgba(170, 170, 170, 1) 0%, rgba(247, 247, 247, 1) 100%);
+			z-index: 1;
+			right: 0px;
+			top: -150px;
+			transform: rotate(0deg);
+			transition: all 200ms;
+		}
+
+		label {
+			position: relative;
+			z-index: 4;
+			background-color: rgb(0, 73, 73);
+			padding: 10px;
+			border-radius: 10px;
+			font-size: 20px;
+			transition: all 200ms;
+			color: white;
+		}
+
+		button:focus {
+			outline: 0;
+		}
+
+		.eatBtn:hover {
+			transform: scale(1.2);
+			border: 5px solid orangered;
+			font-size: 3vw;
+		}
+
+		.eatBtn:active {
+			transform: scale(1.5);
+			border: 5px solid blue;
+			font-size: 3vw;
+		}
+
+		#addBurgerBtn:hover {
+			transform: scale(.99);
+		}
+
+		label:hover {
+			cursor: pointer;
+			color: rgb(199, 255, 189);
+		}
+
+		#graveyardBtn {
+			transition: all 200ms;
+			margin: 25px;
+			padding: 10px;
+			border: 3px solid saddlebrown;
+			width: 280px;
+			border-radius: 10px;
+		}
+
+		#graveyardBtn:hover {
+			cursor: pointer;
+			background-color: skyblue;
+			color: white;
+			text-decoration: none;
+		}
+
+		#gravestone {
+			background-color: rgb(185, 190, 196);
+			height: 100%;
+			border-radius: 100% 100% 0 0;
+			width: 50%;
+			margin: 0 auto;
+			border: 15px solid gray;
+			border-top: 20px solid rgb(165, 165, 165);
+			border-bottom: 10px solid rgb(68, 68, 68);
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		#stoneBottom {
+			background-color: rgb(185, 190, 196);
+			border: 20px solid gray;
+			border-top: 10px solid rgb(165, 165, 165);
+			border-bottom: 0;
+			height: 150px;
+			width: 60%;
+			margin: 0 auto;
+		}
+
+		.graveItem {
+			font-size: 25px;
+			margin: 5px;
+			padding: 3px 3px 7px 3px;
+			border: 5px outset rgb(224, 224, 224);
+			background-color: rgb(195, 203, 212);
+			color: rgb(68, 68, 68);
+			text-shadow: 0px 4px whitesmoke,
+				0px 3px whitesmoke,
+				0px 2px whitesmoke,
+				0px 1px whitesmoke;
+		}
+
+		a:link,
+		a:active {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		a:visited {
+			color: green;
+		}
+
+		#wholeYard {
+			background: linear-gradient(0deg, rgba(255, 250, 205, 1) 0%, rgba(32, 124, 0, 1) 3%, rgba(140, 255, 143, 1) 35%, rgba(255, 255, 255, 1) 46%, rgba(255, 245, 118, 1) 55%, rgba(255, 250, 205, 1) 75%, rgba(255, 250, 205, 1) 100%);
+		}
+
+
+		@media screen and (min-width: 1600px) {
+			.eatBtn {
+				font-size: 45px;
+			}
+
+			.burger {
+				font-size: 45px;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>Burger Holder</h1>
+
+		{{{ body }}}
+
+</body>
+
 </html>
