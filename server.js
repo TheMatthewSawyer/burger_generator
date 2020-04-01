@@ -1,20 +1,22 @@
-let express = require("express");
+const express = require("express");
+const compression = require("compression");
 
-let PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
-let app = express();
+const app = express();
 
+app.use(compression());
 app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-let exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-let routes = require("./controllers/burgers_controller.js");
+const routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
